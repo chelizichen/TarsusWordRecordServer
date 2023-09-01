@@ -2,8 +2,8 @@
 * 记录与打卡相关的结构体
 */
 
-java_struct_package = com.tarsus.dev_v2_0.struct.*;
-java_inf_package =  com.tarsus.dev_v2_0.taro;
+java_struct_package = org.example.struct.*;
+java_inf_package =  org.example.taro;
 
 struct RecordParams  {
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.RecordMapper">
+
+    <!-- 基础的ResultMap -->
+    <resultMap id="BaseResultMap" type="org.example.struct.Record">
+        <id column="id" property="id" />
+        <result column="create_time" property="create_time" />
+        <result column="is_register" property="is_register" />
+        <result column="user_id" property="user_id" />
+        <!-- 其他字段 -->
+    </resultMap>
+
+</mapper>
