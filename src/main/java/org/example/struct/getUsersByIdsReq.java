@@ -12,21 +12,19 @@ import com.alibaba.fastjson.JSONObject;
 
 
 @TaroStruct
-public class SetCacheRes extends TarsusBodyABS{
-  public String code;
-public String message;
+public class getUsersByIdsReq extends TarsusBodyABS{
+  public List<Integer> ids;
 
 
   // ListConstructor
-  public SetCacheRes(List<?> list){
-    TarsusStream _tarsusStream = new TarsusStream(list, "SetCacheRes");
-        this.code = _tarsusStream.read_string(1);
-    this.message = _tarsusStream.read_string(2);
+  public getUsersByIdsReq(List<?> list){
+    TarsusStream _tarsusStream = new TarsusStream(list, "getUsersByIdsReq");
+        this.ids = _tarsusStream.read_list(1,"List<int>");
   
   }
 
   // NoArgsConstructor
-  public SetCacheRes(){
+  public getUsersByIdsReq(){
 
   }
 }

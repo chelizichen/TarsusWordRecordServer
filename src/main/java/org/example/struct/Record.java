@@ -23,12 +23,16 @@ public class Record {
 
     @TableField
     public String create_time;
-    @TableField
 
+    @TableField
     public String is_register;
-    @TableField
 
+    @TableField
     public String user_id;
+
+    @TableField(exist = false)
+    public String user_name;
+
 
     public Integer getId() {
         return id;
@@ -69,6 +73,7 @@ public class Record {
         this.create_time = _tarsusStream.read_string(2);
         this.is_register = _tarsusStream.read_string(3);
         this.user_id = _tarsusStream.read_string(4);
+        this.user_name = _tarsusStream.read_string(5);
 
     }
 

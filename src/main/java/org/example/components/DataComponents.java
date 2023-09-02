@@ -30,9 +30,14 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-@RunWith(JUnit4.class)
+
 public class DataComponents {
-    SqlSession session;
+    private SqlSession session;
+
+    public SqlSession getSession() {
+        return session;
+    }
+
     public  DataComponents() throws IOException {
         SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
         //这是mybatis-plus的配置对象，对mybatis的Configuration进行增强

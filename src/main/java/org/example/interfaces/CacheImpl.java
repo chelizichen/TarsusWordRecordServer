@@ -22,4 +22,9 @@ public class CacheImpl extends TarsusBaseReflect implements CacheInf {
     public getWordsByIdsRes getCacheWords(getWordsByIdsReq req, getWordsByIdsRes res) {
         return null;
     }
+
+    @Override
+    public getUsersByIdsRes getCacheUsers(getUsersByIdsReq req, getUsersByIdsRes res) {
+        return null;
+    }
 }

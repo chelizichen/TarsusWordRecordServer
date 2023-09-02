@@ -7,9 +7,9 @@ import org.example.interfaces.*;
 import java.lang.reflect.InvocationTargetException;
 
 @TarsusMsApplication
-public class Main {
+public class TarsusRecordServer {
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
-        Tarsus tarsus = new Tarsus(Main.class);
+        Tarsus tarsus = new Tarsus(TarsusRecordServer.class);
         tarsus.LoadInterFace(new Class[]{
                 PlanImpl.class,
                 CacheImpl.class,

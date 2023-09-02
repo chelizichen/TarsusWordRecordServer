@@ -1,6 +1,6 @@
+
 package org.example.struct;
 
-import com.alibaba.fastjson.JSONObject;
 import com.tarsus.lib.lib_decorator.struct.TaroStruct;
 import com.tarsus.lib.main_control.load_server.TarsusBodyABS;
 import com.tarsus.lib.main_control.load_server.impl.TarsusStream;
@@ -29,13 +29,6 @@ public class getWordsByIdsRes extends TarsusBodyABS {
     // NoArgsConstructor
     public getWordsByIdsRes() {
 
-    }
-
-    // toJson
-    @Override
-    public String json() {
-        Object o = JSONObject.toJSON(this);
-        return o.toString();
     }
 }
   
