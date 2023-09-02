@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.core.injector.DefaultSqlInjector;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.toolkit.GlobalConfigUtils;
+import com.tarsus.lib.lib_decorator.ioc.Collect;
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.ibatis.builder.xml.XMLMapperBuilder;
 import org.apache.ibatis.logging.slf4j.Slf4jImpl;
@@ -31,6 +32,7 @@ import java.util.List;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+@Collect
 public class DataComponents {
     private SqlSession session;
 
@@ -121,15 +123,4 @@ public class DataComponents {
             }
         }
     }
-
-//    public static void main(String[] args) throws IOException {
-//        DataComponents dataComponents = new DataComponents();
-//        RecordMapper mapper = dataComponents.session.getMapper(RecordMapper.class);
-//        List<Record> byId1 = mapper.getById1();
-//        Record record = mapper.selectById(2);
-//        List<Record> records = mapper.selectList(new QueryWrapper<>());
-//        System.out.println(byId1);
-//        System.out.println(record);
-//        System.out.println(records);
-//    }
 }

@@ -6,6 +6,7 @@ import com.tarsus.lib.lib_decorator.ms.TarsusInterFace;
 import com.tarsus.lib.lib_decorator.ms.TarsusMethod;
 import com.tarsus.lib.main_control.load_server.impl.Tarsus;
 import org.apache.ibatis.session.SqlSession;
+import org.example.components.CollectComponents;
 import org.example.components.DataComponents;
 import org.example.mapper.RecordMapper;
 import org.example.struct.*;
@@ -17,21 +18,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+
 @TarsusInterFace("record")
 public class RecordImpl implements RecordInf {
 
-    UserImpl userServer = new UserImpl();
-    CacheImpl cache = new CacheImpl();
-    DataComponents dataComponents;
 
-    public RecordImpl() throws IOException {
-        dataComponents = new DataComponents();
-    }
 
     @Override
     @TarsusMethod
     public getUserRecordRes getUserRecord(queryIdReq req, getUserRecordRes res) {
-        SqlSession session = dataComponents.getSession();
+        SqlSession session = CollectComponents.dataComponents.getSession();
         RecordMapper mapper = session.getMapper(RecordMapper.class);
         QueryWrapper<Record> objectQueryWrapper = new QueryWrapper<>();
         objectQueryWrapper.eq("user_id", req.id);
@@ -41,7 +37,7 @@ public class RecordImpl implements RecordInf {
         getUsersByIdsReq idsReq = new getUsersByIdsReq();
         idsReq.ids = userIds;
         Map<String, String> userIdToNameMap = new HashMap<>();
-        cache.ProxySendRequest("getCacheUsers",idsReq,new getUsersByIdsRes(),data->{
+        CollectComponents.cacheServer.ProxySendRequest("getCacheUsers",idsReq,new getUsersByIdsRes(),data->{
             data.list.stream().forEach(userCache -> {
                 userIdToNameMap.put(userCache.user_id, userCache.user_name);
             });
@@ -75,7 +71,7 @@ public class RecordImpl implements RecordInf {
         getUserByIdRes queryUsersNameRes = new getUserByIdRes();
         res.code = 0;
         res.message = "1";
-        userServer.ProxySendRequest("getUserById", idsReq, queryUsersNameRes, data -> {
+        CollectComponents.userServer.ProxySendRequest("getUserById", idsReq, queryUsersNameRes, data -> {
             System.out.println("再执行异步方法");
             System.out.println(data.data);
             System.out.println(data.code);

@@ -2,8 +2,10 @@ package org.example;
 
 import com.tarsus.lib.lib_decorator.ms.TarsusMsApplication;
 import com.tarsus.lib.main_control.load_server.impl.Tarsus;
+import org.example.components.CollectComponents;
 import org.example.interfaces.*;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
 @TarsusMsApplication
